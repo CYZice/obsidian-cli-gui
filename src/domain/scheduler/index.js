@@ -3,6 +3,8 @@
  * 定时检查并执行工作流
  */
 
+const obsidian = require("obsidian");
+
 /**
  * 启动定时调度器
  * @param {object} plugin - 插件实例

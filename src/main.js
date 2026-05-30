@@ -20,7 +20,6 @@ const { startScheduler, checkSchedules } = require("./domain/scheduler");
 
 // Infrastructure 层
 const { loadSettings, saveSettings } = require("./infrastructure/persistence/settings");
-const { validatePluginIntegrity, generatePluginFingerprint } = require("./infrastructure/security/integrity");
 
 // UI 层 - 视图
 const { CLICommanderView, VIEW_TYPE } = require("./ui/views/CLICommanderView");
@@ -64,8 +63,6 @@ module.exports = {
   CLICommanderSettingTab,
   loadSettings,
   saveSettings,
-  validatePluginIntegrity,
-  generatePluginFingerprint,
   startScheduler,
   executeCLI,
 };

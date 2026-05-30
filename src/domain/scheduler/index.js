@@ -4,6 +4,7 @@
  */
 
 const obsidian = require("obsidian");
+const { VIEW_TYPE } = require("../../ui/views/CLICommanderView");
 
 /**
  * 启动定时调度器
@@ -48,7 +49,7 @@ async function checkSchedules(plugin) {
           new obsidian.Notice("⏰ 定时执行序列：" + workflow.name);
           try {
             var { combined, success } = await plugin.runWorkflow(workflow);
-            var view = plugin.app.workspace.getLeavesOfType("cli-commander")[0]?.view;
+            var view = plugin.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view;
             if (view) {
               view._showResult(combined, !success);
               view._addHistory(

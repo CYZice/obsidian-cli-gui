@@ -1,10 +1,11 @@
 /**
  * CLI 命令执行器
  */
+const obsidian = require("obsidian");
 const { resolveTemplateVars } = require("./builder");
 const path = require("path");
 const fs = require("fs");
-const { exec } = require("child_process");
+const { exec, execSync } = require("child_process");
 
 /**
  * 获取 Obsidian 可执行文件路径
@@ -147,7 +148,7 @@ async function executeAgent(cmd, context) {
   var options = {
     showPanel: !!!this.app.workspace.getLeavesOfType("flowtext-agent-view")[0],
   };
-  if (content) options.context = content;
+  if (workflowContext) options.context = workflowContext;
   if (filePath) options.filePath = filePath;
 
   var workspace = this.app.workspace;
@@ -200,7 +201,6 @@ async function executeCLI(cmd, options) {
   }
 
   var isWin = navigator.platform.indexOf("Win") !== -1;
-  var execSync = require("child_process").exec;
   var obsidianPath = getObsidianBin.call(this);
   var binArg = obsidianPath !== "obsidian" && (obsidianPath.includes(" ") || obsidianPath.includes("\\"))
     ? `"${obsidianPath}"`

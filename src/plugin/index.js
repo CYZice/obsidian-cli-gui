@@ -162,9 +162,11 @@ class CLICommanderPlugin extends obsidian.Plugin {
   }
 
   activateView() {
-    this.app.workspace.getLeaf("tab").then((leaf) =>
-      leaf.openViewType(VIEW_TYPE),
-    );
+    const leaf = this.app.workspace.getLeaf("tab");
+    return leaf.openViewState({
+      type: VIEW_TYPE,
+      active: true,
+    });
   }
 
   async executeCLI(cmd, options) {

@@ -34,38 +34,39 @@ const { getCategoryIcon, setIcon } = require("./ui/components/common/icon");
 const { formatTime } = require("./ui/components/common/datetime");
 const { CLICommanderSettingTab } = require("./ui/setting-tab/CLICommanderSettingTab");
 
-// 导出给 main.js 使用
-module.exports = {
-  obsidian,
-  CLI_CATEGORIES,
-  CLI_COMMANDS,
-  BUILTIN_PRESETS,
-  DEFAULT_SETTINGS,
-  compareVersions,
-  generateSecureHash,
-  generateSimpleHash,
-  getNewNoteFolderPath,
-  getUniqueUntitledPath,
-  resolveTemplateVars,
-  formatScheduleDesc,
-  buildCommandString,
-  getCategoryIcon,
-  setIcon,
-  formatTime,
-  CLICommanderView,
-  VIEW_TYPE,
-  ConfirmModal,
-  ResultModal,
-  QuickInputModal,
-  SavePresetModal,
-  WorkflowEditorModal,
-  WorkflowResultModal,
-  CLICommanderSettingTab,
-  loadSettings,
-  saveSettings,
-  startScheduler,
-  executeCLI,
-};
+const { CLICommanderPlugin } = require("./plugin/index");
 
-// 重新导出
-module.exports.CLICommanderPlugin = require("./plugin/index").CLICommanderPlugin;
+// Obsidian 需要主导出为插件类本身，而不是包含插件类的普通对象。
+module.exports = CLICommanderPlugin;
+
+// 保留命名属性，避免本地调试或其他模块引用时丢失上下文。
+module.exports.obsidian = obsidian;
+module.exports.CLI_CATEGORIES = CLI_CATEGORIES;
+module.exports.CLI_COMMANDS = CLI_COMMANDS;
+module.exports.BUILTIN_PRESETS = BUILTIN_PRESETS;
+module.exports.DEFAULT_SETTINGS = DEFAULT_SETTINGS;
+module.exports.compareVersions = compareVersions;
+module.exports.generateSecureHash = generateSecureHash;
+module.exports.generateSimpleHash = generateSimpleHash;
+module.exports.getNewNoteFolderPath = getNewNoteFolderPath;
+module.exports.getUniqueUntitledPath = getUniqueUntitledPath;
+module.exports.resolveTemplateVars = resolveTemplateVars;
+module.exports.formatScheduleDesc = formatScheduleDesc;
+module.exports.buildCommandString = buildCommandString;
+module.exports.getCategoryIcon = getCategoryIcon;
+module.exports.setIcon = setIcon;
+module.exports.formatTime = formatTime;
+module.exports.CLICommanderView = CLICommanderView;
+module.exports.VIEW_TYPE = VIEW_TYPE;
+module.exports.ConfirmModal = ConfirmModal;
+module.exports.ResultModal = ResultModal;
+module.exports.QuickInputModal = QuickInputModal;
+module.exports.SavePresetModal = SavePresetModal;
+module.exports.WorkflowEditorModal = WorkflowEditorModal;
+module.exports.WorkflowResultModal = WorkflowResultModal;
+module.exports.CLICommanderSettingTab = CLICommanderSettingTab;
+module.exports.loadSettings = loadSettings;
+module.exports.saveSettings = saveSettings;
+module.exports.startScheduler = startScheduler;
+module.exports.executeCLI = executeCLI;
+module.exports.CLICommanderPlugin = CLICommanderPlugin;

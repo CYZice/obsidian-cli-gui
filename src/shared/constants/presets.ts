@@ -1,4 +1,6 @@
-const BUILTIN_PRESETS = [
+import type { BuiltinPresetDefinition } from "../../types";
+
+export const BUILTIN_PRESETS: BuiltinPresetDefinition[] = [
   {
     id: "p-append",
     name: "快速记录想法",
@@ -43,5 +45,3 @@ const BUILTIN_PRESETS = [
     quickInput: { param: "template", placeholder: "模板名..." },
   },
 ];
-
-module.exports = { BUILTIN_PRESETS };

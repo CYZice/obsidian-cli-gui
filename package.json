@@ -5,12 +5,17 @@
     "main": "main.js",
     "scripts": {
         "dev": "node esbuild.config.mjs",
-        "build": "node esbuild.config.mjs production"
+        "build": "node esbuild.config.mjs production",
+        "typecheck": "tsc --noEmit"
     },
-    "keywords": ["obsidian", "plugin"],
+    "keywords": [
+        "obsidian",
+        "plugin"
+    ],
     "author": "CYZice",
     "license": "MIT",
     "devDependencies": {
-        "esbuild": "^0.17.3"
+        "esbuild": "^0.17.3",
+        "typescript": "^5.9.3"
     }
 }

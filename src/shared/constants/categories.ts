@@ -1,4 +1,6 @@
-const CLI_CATEGORIES = [
+import type { CLICategoryDefinition } from "../../types";
+
+export const CLI_CATEGORIES: CLICategoryDefinition[] = [
   { id: "daily", name: "日记", desc: "每日笔记相关操作", icon: "calendar-days" },
   { id: "files", name: "文件", desc: "文件与文件夹管理", icon: "file-text" },
   { id: "search", name: "搜索", desc: "全库搜索与检索", icon: "search" },
@@ -20,5 +22,3 @@ const CLI_CATEGORIES = [
   { id: "other", name: "其他", desc: "其他命令", icon: "settings" },
   { id: "agent", name: "Agent", desc: "调用 FlowText Agent 智能助手", icon: "sparkles" },
 ];
-
-module.exports = { CLI_CATEGORIES };

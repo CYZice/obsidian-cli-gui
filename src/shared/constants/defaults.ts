@@ -1,4 +1,6 @@
-const DEFAULT_SETTINGS = {
+import type { CLICommanderSettings } from "../../types";
+
+export const DEFAULT_SETTINGS: CLICommanderSettings = {
   userPresets: [],
   userPresetGroups: [],
   presetGroupCollapsed: {},
@@ -21,5 +23,3 @@ const DEFAULT_SETTINGS = {
   moveConflictSuffix: "number",
   showResultPanel: true,
 };
-
-module.exports = { DEFAULT_SETTINGS };

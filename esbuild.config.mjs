@@ -13,7 +13,7 @@ const context = await esbuild.context({
     banner: {
         js: banner,
     },
-    entryPoints: ["src/main.js"],
+    entryPoints: ["src/main.ts"],
     bundle: true,
     external: [
         "obsidian",
@@ -30,6 +30,7 @@ const context = await esbuild.context({
         "@lezer/highlight",
         "@lezer/lr",
         ...builtinModules],
+    resolveExtensions: [".ts", ".js", ".mjs"],
     format: "cjs",
     target: "es2020",
     logLevel: "info",

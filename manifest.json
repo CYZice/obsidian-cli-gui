@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-cli-gui",
+  "name": "CLI Commander",
+  "version": "0.5.3",
+  "minAppVersion": "1.12.0",
+  "description": "CLI Commander插件，可视化 CLI 命令构建器 。单个命令可独立执行，也可以多个命令用积木式界面拼接、保存和执行，这使得多步骤的自动化工作流可以轻松一键实现，而无需ai介入",
+  "author": "CYZice",
+  "isDesktopOnly": true
+}

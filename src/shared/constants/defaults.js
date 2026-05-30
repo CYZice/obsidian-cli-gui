@@ -1,0 +1,25 @@
+const DEFAULT_SETTINGS = {
+  userPresets: [],
+  userPresetGroups: [],
+  presetGroupCollapsed: {},
+  workflowGroups: [],
+  wfGroupCollapsed: {},
+  workflows: [],
+  executionHistory: [],
+  maxHistory: 50,
+  showCommandPreview: true,
+  confirmDangerous: true,
+  favorites: [],
+  hiddenBuiltinPresets: [],
+  builtinPresetOrder: [],
+  homePresetIds: null,
+  evalLastCode: "",
+  evalSnippets: [],
+  evalSnippetGroups: [],
+  evalSnippetGroupCollapsed: {},
+  moveConflictRename: true,
+  moveConflictSuffix: "number",
+  showResultPanel: true,
+};
+
+module.exports = { DEFAULT_SETTINGS };

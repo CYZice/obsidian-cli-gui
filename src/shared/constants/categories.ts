@@ -20,5 +20,5 @@ export const CLI_CATEGORIES: CLICategoryDefinition[] = [
   { id: "dev", name: "开发者", desc: "开发者工具", icon: "code-2" },
   { id: "base", name: "数据库", desc: "Bases 数据库管理", icon: "database" },
   { id: "other", name: "其他", desc: "其他命令", icon: "settings" },
-  { id: "agent", name: "Agent", desc: "调用 FlowText Agent 智能助手", icon: "sparkles" },
+  { id: "agent", name: "Agent", desc: "调用 Yolo Agent 智能助手", icon: "sparkles" },
 ];

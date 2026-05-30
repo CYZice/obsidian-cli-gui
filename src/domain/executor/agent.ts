@@ -3,12 +3,13 @@ import { parseArg } from "./args";
 import type {
   CLICommanderPluginInstance,
   CLIExecutionContext,
-  FlowTextAgentResult,
-  FlowTextPlugin,
+  RunAgentTaskOptions,
+  RunAgentTaskResult,
+  YoloPlugin,
 } from "../../types";
 
-function getFlowTextPlugin(plugin: CLICommanderPluginInstance): FlowTextPlugin | null {
-  return (plugin.app.plugins?.plugins?.flowtext as FlowTextPlugin | undefined) || null;
+function getYoloPlugin(plugin: CLICommanderPluginInstance): YoloPlugin | null {
+  return (plugin.app.plugins?.plugins?.yolo as YoloPlugin | undefined) || null;
 }
 
 export async function executeAgent(
@@ -16,12 +17,12 @@ export async function executeAgent(
   command: string,
   context?: CLIExecutionContext,
 ): Promise<string> {
-  const flowText = getFlowTextPlugin(plugin);
-  if (!flowText) {
-    throw new Error("FlowText 插件未安装或未启用，无法使用 Agent 功能");
+  const yolo = getYoloPlugin(plugin);
+  if (!yolo) {
+    throw new Error("Yolo 插件未安装或未启用，无法使用 Agent 功能");
   }
-  if (typeof flowText.runAgentTask !== "function") {
-    throw new Error("FlowText 插件版本过低，请更新以支持 Agent API");
+  if (typeof yolo.runAgentTask !== "function") {
+    throw new Error("Yolo 插件版本过低，请更新以支持 runAgentTask API");
   }
 
   const content = parseArg(command, "content");
@@ -29,8 +30,9 @@ export async function executeAgent(
     throw new Error("agent 命令缺少 content 参数，请指定任务描述");
   }
 
-  const filePath = parseArg(command, "path");
-  const workflowContext = context?.__workflowContext || "";
+  const filePath = parseArg(command, "filePath") || parseArg(command, "path");
+  const folderPath = parseArg(command, "folderPath") || parseArg(command, "folder");
+  const assistantId = parseArg(command, "assistantId");
   let targetFile: TFile | null = null;
 
   if (filePath) {
@@ -41,22 +43,22 @@ export async function executeAgent(
     targetFile = abstractFile;
   }
 
-  new Notice(`🤖 Agent 处理: ${filePath || content.slice(0, 30)}`);
+  new Notice(`🤖 Agent 处理: ${filePath || folderPath || content.slice(0, 30)}`);
 
   while (plugin._agentRunning) {
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
   plugin._agentRunning = true;
-  const options: Record<string, unknown> = {
-    showPanel: !plugin.app.workspace.getLeavesOfType("flowtext-agent-view")[0],
-  };
-
-  if (workflowContext) {
-    options.context = workflowContext;
-  }
+  const options: RunAgentTaskOptions = {};
   if (filePath) {
     options.filePath = filePath;
+  }
+  if (folderPath) {
+    options.folderPath = folderPath;
+  }
+  if (assistantId) {
+    options.assistantId = assistantId;
   }
 
   const workspace = plugin.app.workspace;
@@ -67,11 +69,11 @@ export async function executeAgent(
       workspace.getActiveFile = () => targetFile;
     }
 
-    const result = (await flowText.runAgentTask(content, options)) as FlowTextAgentResult;
+    const result = (await yolo.runAgentTask(content, options)) as RunAgentTaskResult;
     if (result?.success) {
-      return result.answer || "(Agent 任务完成)";
+      return result.message || "(Agent 任务完成)";
     }
-    throw new Error(result?.answer || "Agent 任务执行失败");
+    throw new Error(result?.message || "Agent 任务执行失败");
   } finally {
     if (originalGetActiveFile) {
       workspace.getActiveFile = originalGetActiveFile;

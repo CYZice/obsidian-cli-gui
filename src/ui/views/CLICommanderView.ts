@@ -127,8 +127,8 @@ class CLICommanderView extends obsidian.ItemView {
     return renderCmdList.call(this, container, commands);
   }
 
-  _refreshCmdList() {
-    return refreshCmdList.call(this);
+  _refreshCmdList(container) {
+    return refreshCmdList.call(this, container);
   }
 
   _renderCmdItem(container, command) {

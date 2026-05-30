@@ -146,13 +146,19 @@ export interface CLIExecutionContext {
   [key: string]: string | undefined;
 }
 
-export interface FlowTextAgentResult {
-  success: boolean;
-  answer?: string;
+export interface RunAgentTaskOptions {
+  filePath?: string;
+  folderPath?: string;
+  assistantId?: string;
 }
 
-export interface FlowTextPlugin {
-  runAgentTask(content: string, options: Record<string, unknown>): Promise<FlowTextAgentResult>;
+export interface RunAgentTaskResult {
+  success: boolean;
+  message: string;
+}
+
+export interface YoloPlugin {
+  runAgentTask(content: string, options: RunAgentTaskOptions): Promise<RunAgentTaskResult>;
 }
 
 export interface CLICommanderViewLike {
@@ -198,7 +204,7 @@ export interface NewNoteFolderContext {
   };
 }
 
-export interface FlowtextAgentLeaf {
+export interface AgentViewLeaf {
   view?: CLICommanderViewLike;
 }
 

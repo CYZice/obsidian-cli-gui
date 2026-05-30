@@ -1,5 +1,5 @@
 {
-  "id": "obsidian-cli-gui",
+  "id": "cli-gui",
   "name": "CLI Commander",
   "version": "0.5.3",
   "minAppVersion": "1.12.0",

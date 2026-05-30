@@ -1,0 +1,16 @@
+{
+    "name": "obsidian-cli-gui",
+    "version": "1.0.0",
+    "description": "CLI Commander for Obsidian",
+    "main": "main.js",
+    "scripts": {
+        "dev": "node esbuild.config.mjs",
+        "build": "node esbuild.config.mjs production"
+    },
+    "keywords": ["obsidian", "plugin"],
+    "author": "CYZice",
+    "license": "MIT",
+    "devDependencies": {
+        "esbuild": "^0.17.3"
+    }
+}

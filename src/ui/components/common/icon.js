@@ -4,7 +4,7 @@
  * @returns {string}
  */
 function getCategoryIcon(categoryId) {
-  const { CLI_CATEGORIES } = require("../../shared/constants/categories");
+  const { CLI_CATEGORIES } = require("../../../shared/constants/categories");
   return CLI_CATEGORIES.find((c) => c.id === categoryId)?.icon || "settings";
 }
 

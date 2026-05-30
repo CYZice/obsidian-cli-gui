@@ -1,3 +1,4 @@
+const obsidian = require("obsidian");
 const { BUILTIN_PRESETS } = require("../../shared/constants/presets");
 
 /**

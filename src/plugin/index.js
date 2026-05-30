@@ -10,6 +10,7 @@ const { CLICommanderSettingTab } = require("../ui/setting-tab/CLICommanderSettin
 const { QuickInputModal } = require("../ui/components/modals/QuickInputModal");
 const { ResultModal } = require("../ui/components/modals/ResultModal");
 const { startScheduler } = require("../domain/scheduler");
+const { executeCLI } = require("../domain/commands/executor");
 
 // Re-export for backwards compatibility
 module.exports = {
@@ -273,5 +274,13 @@ class CLICommanderPlugin extends obsidian.Plugin {
         leaf.openViewType(VIEW_TYPE),
       );
     }
+  }
+
+  async executeCLI(cmd, options) {
+    return executeCLI.call(this, cmd, options);
+  }
+
+  async runWorkflow(workflow) {
+    return runWorkflow.call(this, workflow);
   }
 }

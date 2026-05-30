@@ -12,14 +12,14 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "留空=当前文件"
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "folder/note.md"
       }
     ]
@@ -34,20 +34,20 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "folder",
         "label": "文件夹",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "ext",
         "label": "扩展名",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "md"
       },
       {
         "name": "total",
         "label": "仅显示数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -61,19 +61,19 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "newtab",
         "label": "新标签页",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -87,47 +87,47 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "文件名",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "留空则为 Untitled"
       },
       {
         "name": "path",
         "label": "完整路径",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "文件夹/文件名.md"
       },
       {
         "name": "content",
         "label": "内容",
         "type": "textarea",
-        "required": true,
+        "required": false,
         "placeholder": "支持换行（Enter 键），将自动转为 \\n"
       },
       {
         "name": "template",
         "label": "模板路径",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "需要开启\"模板\"核心插件"
       },
       {
         "name": "overwrite",
         "label": "覆盖已有",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "open",
         "label": "创建后打开",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "newtab",
         "label": "新标签页",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -141,13 +141,13 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -161,13 +161,13 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "content",
@@ -179,7 +179,7 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "inline",
         "label": "不换行",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -193,13 +193,13 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "content",
@@ -211,7 +211,7 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "inline",
         "label": "不换行",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -225,13 +225,13 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "to",
@@ -251,13 +251,13 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "name",
@@ -277,19 +277,19 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "permanent",
         "label": "永久删除",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ],
     "dangerous": false
@@ -315,7 +315,7 @@ export const filesCommands: CLICommandDefinition[] = [
           "folders",
           "size"
         ],
-        "required": true
+        "required": false
       }
     ]
   },
@@ -329,13 +329,13 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "folder",
         "label": "父文件夹",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -349,25 +349,25 @@ export const filesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "words",
         "label": "仅字数",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "characters",
         "label": "仅字符数",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

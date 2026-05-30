@@ -40,13 +40,13 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "folder",
         "label": "文件夹",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "newtab",
         "label": "新标签页",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -60,7 +60,7 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "folder",
         "label": "文件夹",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -81,7 +81,7 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "newtab",
         "label": "新标签页",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -95,13 +95,13 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -112,13 +112,13 @@ export const otherCommands: CLICommandDefinition[] = [
           "md",
           "json"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -132,31 +132,31 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "文件路径",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "active",
         "label": "当前文件",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -170,7 +170,7 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "filter",
         "label": "前缀",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -203,19 +203,19 @@ export const otherCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "自定义",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -235,7 +235,7 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "verbose",
         "label": "自定义",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -249,13 +249,13 @@ export const otherCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "名称",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "content",
         "label": "内容",
         "type": "textarea",
-        "required": true
+        "required": false
       },
       {
         "name": "paneType",
@@ -266,13 +266,13 @@ export const otherCommands: CLICommandDefinition[] = [
           "split",
           "window"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "open",
         "label": "打开",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

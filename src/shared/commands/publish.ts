@@ -19,7 +19,7 @@ export const publishCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -33,25 +33,25 @@ export const publishCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "new",
         "label": "新文件",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "changed",
         "label": "已修改",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "deleted",
         "label": "已删除",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -65,19 +65,19 @@ export const publishCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "changed",
         "label": "所有变更",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -91,13 +91,13 @@ export const publishCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -111,13 +111,13 @@ export const publishCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   }

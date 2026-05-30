@@ -12,13 +12,13 @@ export const historyCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "from",
@@ -40,7 +40,7 @@ export const historyCommands: CLICommandDefinition[] = [
           "local",
           "sync"
         ],
-        "required": true
+        "required": false
       }
     ]
   },
@@ -54,13 +54,13 @@ export const historyCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -81,13 +81,13 @@ export const historyCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "version",
@@ -107,13 +107,13 @@ export const historyCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "version",
@@ -134,13 +134,13 @@ export const historyCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   }

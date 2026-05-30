@@ -19,13 +19,13 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "on",
         "label": "连接",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "off",
         "label": "断开",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -45,7 +45,7 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "params",
         "label": "参数JSON",
         "type": "textarea",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -59,7 +59,7 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "clear",
         "label": "清除",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -73,7 +73,7 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "path",
         "label": "保存路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -87,7 +87,7 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "limit",
         "label": "最大数",
         "type": "number",
-        "required": true
+        "required": false
       },
       {
         "name": "level",
@@ -100,13 +100,13 @@ export const devCommands: CLICommandDefinition[] = [
           "info",
           "debug"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "clear",
         "label": "清除",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -126,7 +126,7 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "prop",
         "label": "属性",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -146,37 +146,37 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "attr",
         "label": "属性",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "css",
         "label": "CSS属性",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "text",
         "label": "文本",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "inner",
         "label": "innerHTML",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "all",
         "label": "所有",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -190,13 +190,13 @@ export const devCommands: CLICommandDefinition[] = [
         "name": "on",
         "label": "启用",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "off",
         "label": "禁用",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },

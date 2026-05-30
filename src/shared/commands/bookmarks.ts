@@ -17,19 +17,19 @@ export const bookmarksCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "类型",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -43,25 +43,25 @@ export const bookmarksCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "subpath",
         "label": "子路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "folder",
         "label": "文件夹",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "search",
         "label": "搜索",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "url",
@@ -73,7 +73,7 @@ export const bookmarksCommands: CLICommandDefinition[] = [
         "name": "title",
         "label": "标题",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   }

@@ -19,7 +19,7 @@ export const vaultCommands: CLICommandDefinition[] = [
           "folders",
           "size"
         ],
-        "required": true
+        "required": false
       }
     ]
   },
@@ -33,13 +33,13 @@ export const vaultCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "路径",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

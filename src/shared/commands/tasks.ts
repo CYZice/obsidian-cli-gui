@@ -12,19 +12,19 @@ export const tasksCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "status",
         "label": "状态字符",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -36,43 +36,43 @@ export const tasksCommands: CLICommandDefinition[] = [
           "tsv",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "done",
         "label": "已完成",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "todo",
         "label": "未完成",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "详细",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "active",
         "label": "当前文件",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "daily",
         "label": "今日日记",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -86,56 +86,56 @@ export const tasksCommands: CLICommandDefinition[] = [
         "name": "ref",
         "label": "引用",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "path:line"
       },
       {
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "line",
         "label": "行号",
         "type": "number",
-        "required": true
+        "required": false
       },
       {
         "name": "status",
         "label": "状态",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "toggle",
         "label": "切换",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "done",
         "label": "完成",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "todo",
         "label": "待办",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "daily",
         "label": "日记",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

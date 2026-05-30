@@ -26,13 +26,13 @@ export const baseCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "base文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "view",
@@ -44,25 +44,25 @@ export const baseCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "新条目文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "content",
         "label": "条目文档内容",
         "type": "textarea",
-        "required": true
+        "required": false
       },
       {
         "name": "open",
         "label": "打开",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "newtab",
         "label": "新标签页",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -76,13 +76,13 @@ export const baseCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "view",
@@ -101,7 +101,7 @@ export const baseCommands: CLICommandDefinition[] = [
           "md",
           "paths"
         ],
-        "required": true
+        "required": false
       }
     ]
   }

@@ -12,13 +12,13 @@ export const tagsCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "sort",
@@ -28,7 +28,7 @@ export const tagsCommands: CLICommandDefinition[] = [
           "name",
           "count"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -39,25 +39,25 @@ export const tagsCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "counts",
         "label": "数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "active",
         "label": "当前文件",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -77,13 +77,13 @@ export const tagsCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "文件列表",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

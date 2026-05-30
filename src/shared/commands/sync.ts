@@ -12,13 +12,13 @@ export const syncCommands: CLICommandDefinition[] = [
         "name": "on",
         "label": "恢复",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "off",
         "label": "暂停",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -39,19 +39,19 @@ export const syncCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -65,13 +65,13 @@ export const syncCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "version",
@@ -91,13 +91,13 @@ export const syncCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "version",
@@ -118,13 +118,13 @@ export const syncCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -138,7 +138,7 @@ export const syncCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

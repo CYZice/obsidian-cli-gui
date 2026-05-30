@@ -17,7 +17,7 @@ export const dailyCommands: CLICommandDefinition[] = [
           "split",
           "window"
         ],
-        "required": true
+        "required": false
       }
     ]
   },
@@ -57,19 +57,19 @@ export const dailyCommands: CLICommandDefinition[] = [
           "split",
           "window"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "inline",
         "label": "不换行追加",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "open",
         "label": "执行后打开",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -95,19 +95,19 @@ export const dailyCommands: CLICommandDefinition[] = [
           "split",
           "window"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "inline",
         "label": "不换行插入",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "open",
         "label": "执行后打开",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

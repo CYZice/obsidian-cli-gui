@@ -12,13 +12,13 @@ export const linksCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -29,19 +29,19 @@ export const linksCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "counts",
         "label": "数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -55,19 +55,19 @@ export const linksCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -86,25 +86,25 @@ export const linksCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "counts",
         "label": "数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "verbose",
         "label": "源文件",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -118,7 +118,7 @@ export const linksCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -133,21 +133,21 @@ export const linksCommands: CLICommandDefinition[] = [
         "name": "folder",
         "label": "文件夹路径",
         "type": "text",
-        "required": false,
+        "required": true,
         "placeholder": "例如 Projects 或 Notes/Archive"
       },
       {
         "name": "ext",
         "label": "扩展名过滤",
         "type": "text",
-        "required": true,
+        "required": false,
         "placeholder": "留空=仅md，all=全部，或指定如jpg,png"
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -161,7 +161,7 @@ export const linksCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

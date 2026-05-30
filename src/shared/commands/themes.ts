@@ -12,7 +12,7 @@ export const themesCommands: CLICommandDefinition[] = [
         "name": "versions",
         "label": "版本",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -26,7 +26,7 @@ export const themesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "主题名",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -54,13 +54,13 @@ export const themesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "主题名",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "enable",
         "label": "安装后启用",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -74,7 +74,7 @@ export const themesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "主题名",
         "type": "text",
-        "required": false
+        "required": true
       }
     ],
     "dangerous": false
@@ -103,7 +103,7 @@ export const themesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "片段名",
         "type": "text",
-        "required": false
+        "required": true
       }
     ]
   },
@@ -117,7 +117,7 @@ export const themesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "片段名",
         "type": "text",
-        "required": false
+        "required": true
       }
     ]
   }

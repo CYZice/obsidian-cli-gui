@@ -12,19 +12,19 @@ export const propertiesCommands: CLICommandDefinition[] = [
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "name",
         "label": "属性名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "sort",
@@ -34,7 +34,7 @@ export const propertiesCommands: CLICommandDefinition[] = [
           "name",
           "count"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -45,25 +45,25 @@ export const propertiesCommands: CLICommandDefinition[] = [
           "json",
           "tsv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅总数",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "counts",
         "label": "数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "active",
         "label": "当前文件",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -77,13 +77,13 @@ export const propertiesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "属性名",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "value",
         "label": "属性值",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "type",
@@ -97,19 +97,19 @@ export const propertiesCommands: CLICommandDefinition[] = [
           "date",
           "datetime"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -123,19 +123,19 @@ export const propertiesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "属性名",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -149,19 +149,19 @@ export const propertiesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "属性名",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "file",
         "label": "文件名",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "path",
         "label": "文件路径",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   }

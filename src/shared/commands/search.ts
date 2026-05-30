@@ -12,20 +12,20 @@ export const searchCommands: CLICommandDefinition[] = [
         "name": "query",
         "label": "关键词",
         "type": "text",
-        "required": false,
+        "required": true,
         "placeholder": "搜索关键词"
       },
       {
         "name": "path",
         "label": "限定文件夹",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "limit",
         "label": "最大数",
         "type": "number",
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -35,19 +35,19 @@ export const searchCommands: CLICommandDefinition[] = [
           "text",
           "json"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       },
       {
         "name": "case",
         "label": "区分大小写",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -61,19 +61,19 @@ export const searchCommands: CLICommandDefinition[] = [
         "name": "query",
         "label": "关键词",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "path",
         "label": "限定文件夹",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "limit",
         "label": "最大数",
         "type": "number",
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -83,13 +83,13 @@ export const searchCommands: CLICommandDefinition[] = [
           "text",
           "json"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "case",
         "label": "区分大小写",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -103,7 +103,7 @@ export const searchCommands: CLICommandDefinition[] = [
         "name": "query",
         "label": "关键词",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   }

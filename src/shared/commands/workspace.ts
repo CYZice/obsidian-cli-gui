@@ -12,7 +12,7 @@ export const workspaceCommands: CLICommandDefinition[] = [
         "name": "ids",
         "label": "显示ID",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -26,7 +26,7 @@ export const workspaceCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -54,7 +54,7 @@ export const workspaceCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "名称",
         "type": "text",
-        "required": false
+        "required": true
       }
     ]
   },
@@ -68,10 +68,10 @@ export const workspaceCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "名称",
         "type": "text",
-        "required": false
+        "required": true
       }
     ],
-    "dangerous": false
+    "dangerous": true
   },
   {
     "id": "tabs",
@@ -90,19 +90,19 @@ export const workspaceCommands: CLICommandDefinition[] = [
         "name": "group",
         "label": "标签组",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "file",
         "label": "文件",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "view",
         "label": "视图",
         "type": "text",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -116,7 +116,7 @@ export const workspaceCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   }

@@ -16,7 +16,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
           "core",
           "community"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -27,13 +27,13 @@ export const pluginsCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "versions",
         "label": "版本",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -51,7 +51,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
           "core",
           "community"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "format",
@@ -62,13 +62,13 @@ export const pluginsCommands: CLICommandDefinition[] = [
           "json",
           "csv"
         ],
-        "required": true
+        "required": false
       },
       {
         "name": "versions",
         "label": "版本",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -96,7 +96,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
         "name": "id",
         "label": "插件ID",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "filter",
@@ -106,7 +106,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
           "core",
           "community"
         ],
-        "required": true
+        "required": false
       }
     ]
   },
@@ -120,7 +120,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
         "name": "id",
         "label": "插件ID",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "filter",
@@ -130,7 +130,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
           "core",
           "community"
         ],
-        "required": true
+        "required": false
       }
     ]
   },
@@ -144,13 +144,13 @@ export const pluginsCommands: CLICommandDefinition[] = [
         "name": "id",
         "label": "插件ID",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "enable",
         "label": "安装后启用",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -164,7 +164,7 @@ export const pluginsCommands: CLICommandDefinition[] = [
         "name": "id",
         "label": "插件ID",
         "type": "text",
-        "required": false
+        "required": true
       }
     ],
     "dangerous": false

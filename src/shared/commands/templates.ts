@@ -12,7 +12,7 @@ export const templatesCommands: CLICommandDefinition[] = [
         "name": "total",
         "label": "仅数量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -26,19 +26,19 @@ export const templatesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "模板名",
         "type": "text",
-        "required": false
+        "required": true
       },
       {
         "name": "title",
         "label": "标题变量",
         "type": "text",
-        "required": true
+        "required": false
       },
       {
         "name": "resolve",
         "label": "解析变量",
         "type": "flag",
-        "required": true
+        "required": false
       }
     ]
   },
@@ -52,7 +52,7 @@ export const templatesCommands: CLICommandDefinition[] = [
         "name": "name",
         "label": "模板名",
         "type": "text",
-        "required": false,
+        "required": true,
         "placeholder": "需要开启\"模板\"核心插件"
       }
     ]

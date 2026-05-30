@@ -8,6 +8,8 @@ const QUICK_INPUT_PARAM_NAMES = [
 /**
  * 保存预设 Modal
  */
+const obsidian = require("obsidian");
+
 class SavePresetModal extends obsidian.Modal {
   constructor(app, cmd, values, callback) {
     super(app);

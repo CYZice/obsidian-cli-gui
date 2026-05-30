@@ -1,6 +1,8 @@
 /**
  * 工作流编辑器 Modal
  */
+const obsidian = require("obsidian");
+
 class WorkflowEditorModal extends obsidian.Modal {
   constructor(app, plugin, workflow, callback) {
     super(app);

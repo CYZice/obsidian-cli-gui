@@ -1,6 +1,8 @@
 /**
  * 结果展示 Modal
  */
+const obsidian = require("obsidian");
+
 class ResultModal extends obsidian.Modal {
   constructor(app, command, result) {
     super(app);

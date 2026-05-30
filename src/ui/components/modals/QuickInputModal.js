@@ -1,6 +1,8 @@
 /**
  * 快速输入 Modal
  */
+const obsidian = require("obsidian");
+
 class QuickInputModal extends obsidian.Modal {
   constructor(app, plugin, title, placeholder, callback) {
     super(app);

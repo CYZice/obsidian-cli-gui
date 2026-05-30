@@ -1,6 +1,8 @@
 /**
  * 确认对话框 Modal
  */
+const obsidian = require("obsidian");
+
 class ConfirmModal extends obsidian.Modal {
   constructor(app, title, message, callback) {
     super(app);

@@ -1,4 +1,4 @@
-import { PluginSettingTab, Setting } from "obsidian";
+import { Notice, PluginSettingTab, Setting } from "obsidian";
 import { BUILTIN_PRESETS } from "../../shared/constants/presets";
 import type { CLICommanderPluginInstance } from "../../types";
 
@@ -129,6 +129,85 @@ export class CLICommanderSettingTab extends PluginSettingTab {
             await this.plugin.saveSettings();
             this.display();
           }),
+      );
+
+    container.createEl("h3", { text: "Workflow 文件源" });
+
+    const sources = this.plugin.settings.workflowSources || [];
+    if (sources.length === 0) {
+      container.createEl("p", {
+        text: "还没有添加文件源。外部工具（如 AI 插件）可以编辑 vault 中的 JSON 文件来管理 workflows。",
+        cls: "cli-setting-hint",
+      });
+    } else {
+      sources.forEach((source, index) => {
+        const setting = new Setting(container)
+          .setName(source.path)
+          .setDesc(
+            source.lastError
+              ? `❌ ${source.lastError}`
+              : source.lastLoadedAt
+                ? `✅ 已加载 ${new Date(source.lastLoadedAt).toLocaleString()}`
+                : "状态未知",
+          );
+
+        setting.addToggle((toggle) =>
+          toggle.setValue(source.enabled).onChange(async (value) => {
+            this.plugin.settings.workflowSources[index].enabled = value;
+            await this.plugin.saveSettings();
+            this.display();
+          }),
+        );
+
+        setting.addButton((button) =>
+          button.setIcon("refresh-cw").setTooltip("重新加载").onClick(async () => {
+            await this.plugin.reloadWorkflowSources();
+            this.display();
+          }),
+        );
+
+        setting.addButton((button) =>
+          button.setIcon("trash-2").setTooltip("移除").setWarning().onClick(async () => {
+            this.plugin.settings.workflowSources.splice(index, 1);
+            await this.plugin.saveSettings();
+            this.display();
+          }),
+        );
+      });
+    }
+
+    new Setting(container)
+      .setName("添加文件源")
+      .setDesc("输入 vault 中 JSON 文件的路径")
+      .addText((text) =>
+        text.setPlaceholder(".cli/workflows.json").onChange(async (value) => {
+          if (!value?.trim()) return;
+          const path = value.trim();
+          const count = await this.plugin.addWorkflowSource(path);
+          new Notice(`✅ 已添加文件源，导入了 ${count} 个 workflows`);
+          this.display();
+        }),
+      );
+
+    new Setting(container)
+      .setName("重新加载所有文件源")
+      .addButton((button) =>
+        button.setButtonText("刷新").onClick(async () => {
+          await this.plugin.reloadWorkflowSources();
+          new Notice("🔄 已重新加载所有文件源");
+          this.display();
+        }),
+      );
+
+    new Setting(container)
+      .setName("导出 Workflows 到文件")
+      .setDesc("导出手动创建的 workflows 到 vault 文件")
+      .addText((text) =>
+        text.setPlaceholder(".cli/manual-export.json").onChange(async (value) => {
+          if (!value?.trim()) return;
+          await this.plugin.exportWorkflowsToFile(value.trim());
+          new Notice(`✅ 已导出到 ${value}`);
+        }),
       );
 
     container.createEl("h3", { text: "内置预设管理" });

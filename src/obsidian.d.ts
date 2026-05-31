@@ -128,6 +128,7 @@ declare module "obsidian" {
 
   export interface TextComponent {
     setValue(value: string): this;
+    setPlaceholder(value: string): this;
     onChange(callback: (value: string) => void | Promise<void>): this;
   }
 
@@ -139,6 +140,8 @@ declare module "obsidian" {
 
   export interface ButtonComponent {
     setButtonText(label: string): this;
+    setIcon(icon: string): this;
+    setTooltip(title: string): this;
     setWarning(): this;
     onClick(callback: () => void | Promise<void>): this;
   }

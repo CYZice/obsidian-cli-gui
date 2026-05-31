@@ -17,7 +17,7 @@ export async function checkSchedules(plugin: CLICommanderPluginInstance): Promis
   const timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
   const dayOfWeek = now.getDay();
 
-  for (const workflow of plugin.settings.workflows || []) {
+  for (const workflow of plugin.getAllWorkflows()) {
     const schedule = workflow.schedule;
     if (!schedule?.enabled) {
       continue;

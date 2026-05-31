@@ -1,4 +1,4 @@
-import { Notice, Plugin, type ItemView, type Menu, type WorkspaceLeaf, type TFile } from "obsidian";
+import { Notice, Plugin, type ItemView, type Menu, type WorkspaceLeaf, TFile } from "obsidian";
 import { CLI_COMMANDS } from "../shared/constants/commands";
 import { CLICommanderView, VIEW_TYPE } from "../ui/views/CLICommanderView";
 import { CLICommanderSettingTab } from "../ui/setting-tab/CLICommanderSettingTab";
@@ -8,7 +8,13 @@ import { startScheduler } from "../domain/scheduler";
 import { executeCLI } from "../domain/commands/executor";
 import { loadSettings, saveSettings } from "../infrastructure/persistence/settings";
 import { runWorkflow } from "./workflowRunner";
-import type { CLICommanderPluginInstance, CLIExecutionContext, WorkflowDefinition } from "../types";
+import { importWorkflowsFromFile, exportWorkflowsToFile } from "./workflow/import";
+import type {
+  CLICommanderPluginInstance,
+  CLIExecutionContext,
+  WorkflowDefinition,
+  WorkflowSourceDefinition,
+} from "../types";
 
 export class CLICommanderPlugin extends Plugin implements CLICommanderPluginInstance {
   settings!: CLICommanderPluginInstance["settings"];
@@ -104,6 +110,7 @@ export class CLICommanderPlugin extends Plugin implements CLICommanderPluginInst
     );
 
     this.addSettingTab(new CLICommanderSettingTab(this.app, this));
+    this.registerWorkflowFileListener();
     startScheduler(this);
   }
 
@@ -163,6 +170,90 @@ export class CLICommanderPlugin extends Plugin implements CLICommanderPluginInst
 
   async runWorkflow(workflow: WorkflowDefinition) {
     return runWorkflow(this, workflow);
+  }
+
+  getAllWorkflows(): WorkflowDefinition[] {
+    const manual = this.settings.manualWorkflows || [];
+    const imported = this.settings.workflowSources
+      .filter((s) => s.enabled && s.lastError === null)
+      .flatMap((s) => (s as unknown as { workflows?: WorkflowDefinition[] }).workflows || []);
+    return [...manual, ...imported];
+  }
+
+  async addWorkflowSource(filePath: string): Promise<number> {
+    const { workflows, error } = await importWorkflowsFromFile(this, filePath);
+
+    const existingIndex = this.settings.workflowSources.findIndex((s) => s.path === filePath);
+    const source: WorkflowSourceDefinition = {
+      path: filePath,
+      enabled: true,
+      format: "json",
+      lastLoadedAt: Date.now(),
+      lastError: error || null,
+    };
+
+    if (error) {
+      source.lastError = error;
+      if (existingIndex >= 0) {
+        this.settings.workflowSources[existingIndex] = source;
+      } else {
+        this.settings.workflowSources.push(source);
+      }
+      await this.saveSettings();
+      return 0;
+    }
+
+    // Store workflows directly on the source for quick access
+    (source as unknown as { workflows: WorkflowDefinition[] }).workflows = workflows;
+
+    if (existingIndex >= 0) {
+      this.settings.workflowSources[existingIndex] = source;
+    } else {
+      this.settings.workflowSources.push(source);
+    }
+    await this.saveSettings();
+    return workflows.length;
+  }
+
+  async reloadWorkflowSources(): Promise<void> {
+    const updatedSources: WorkflowSourceDefinition[] = [];
+    for (const source of this.settings.workflowSources) {
+      const { workflows, error } = await importWorkflowsFromFile(this, source.path);
+      const updated: WorkflowSourceDefinition = {
+        ...source,
+        lastLoadedAt: Date.now(),
+        lastError: error || null,
+      };
+      if (!error) {
+        (updated as unknown as { workflows: WorkflowDefinition[] }).workflows = workflows;
+      }
+      updatedSources.push(updated);
+    }
+    this.settings.workflowSources = updatedSources;
+    await this.saveSettings();
+  }
+
+  async exportWorkflowsToFile(
+    filePath: string,
+    options?: { source?: "manual" | "all" }
+  ): Promise<void> {
+    await exportWorkflowsToFile(this, filePath, options);
+  }
+
+  private registerWorkflowFileListener(): void {
+    this.registerEvent(
+      this.app.vault.on("modify", async (file) => {
+        if (!(file instanceof TFile) || !file.path.endsWith(".json")) {
+          return;
+        }
+        const isSource = this.settings.workflowSources.some((s) => s.path === file.path);
+        if (!isSource) {
+          return;
+        }
+        await this.reloadWorkflowSources();
+        new Notice("🔄 Workflow 文件已重新加载");
+      })
+    );
   }
 }
 

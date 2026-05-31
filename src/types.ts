@@ -88,6 +88,18 @@ export interface WorkflowDefinition {
   group?: string;
 }
 
+export interface WorkflowSourceDefinition {
+  path: string;
+  enabled: boolean;
+  format: "json";
+  lastLoadedAt?: number;
+  lastError?: string | null;
+}
+
+export interface ImportedWorkflowFile {
+  workflows: WorkflowDefinition[];
+}
+
 export interface WorkflowRunResultItem {
   step: number;
   command: string;
@@ -123,7 +135,8 @@ export interface CLICommanderSettings {
   presetGroupCollapsed: Record<string, boolean>;
   workflowGroups: string[];
   wfGroupCollapsed: Record<string, boolean>;
-  workflows: WorkflowDefinition[];
+  manualWorkflows: WorkflowDefinition[];
+  workflowSources: WorkflowSourceDefinition[];
   executionHistory: ExecutionHistoryEntry[];
   maxHistory: number;
   showCommandPreview: boolean;
@@ -184,6 +197,10 @@ export interface CLICommanderPluginInstance extends Plugin {
   activateView(): Promise<void>;
   executeCLI(command: string, options?: CLIExecutionContext): Promise<string>;
   runWorkflow(workflow: WorkflowDefinition): Promise<WorkflowRunResult>;
+  getAllWorkflows(): WorkflowDefinition[];
+  addWorkflowSource(filePath: string): Promise<number>;
+  reloadWorkflowSources(): Promise<void>;
+  exportWorkflowsToFile(filePath: string, options?: { source?: "manual" | "all" }): Promise<void>;
 }
 
 export interface SavePresetPayload extends UserPresetDefinition {}

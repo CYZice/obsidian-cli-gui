@@ -119,13 +119,13 @@ export class CLICommanderSettingTab extends PluginSettingTab {
 
     new Setting(container)
       .setName("清空命令序列")
-      .setDesc(`当前 ${this.plugin.settings.workflows.length} 个`)
+      .setDesc(`当前 ${this.plugin.settings.manualWorkflows.length} 个`)
       .addButton((button) =>
         button
           .setButtonText("清空")
           .setWarning()
           .onClick(async () => {
-            this.plugin.settings.workflows = [];
+            this.plugin.settings.manualWorkflows = [];
             await this.plugin.saveSettings();
             this.display();
           }),

@@ -59,7 +59,7 @@ export function renderHome(e) {
             if (t.startsWith("wf:"))
               return (
                 (a = parseInt(t.slice(3))),
-                (e = (this.plugin.settings.workflows || [])[a])
+                (e = (this.plugin.settings.manualWorkflows || [])[a])
                   ? { id: t, type: "wf", data: e, idx: a }
                   : null
               );
@@ -137,7 +137,7 @@ export function renderHome(e) {
                 },
               }),
             ),
-            (this.plugin.settings.workflows || []).forEach((e, t) =>
+            (this.plugin.settings.manualWorkflows || []).forEach((e, t) =>
               a.push({
                 id: "wf:" + t,
                 label: e.name,

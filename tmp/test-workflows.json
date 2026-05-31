@@ -1,0 +1,38 @@
+{
+  "workflows": [
+    {
+      "name": "测试-批量删除孤立图片",
+      "steps": [
+        {
+          "command": "obsidian orphans:folder folder=Extras ext=jpg, png, svg, webp, jpeg, gif, bmp, avif",
+          "label": "查找孤立图片"
+        },
+        {
+          "command": "obsidian delete path=\"{file}\"",
+          "label": "删除图片",
+          "batchMode": true,
+          "baseCommand": "obsidian delete"
+        }
+      ]
+    },
+    {
+      "name": "测试-日记备份",
+      "steps": [
+        {
+          "command": "obsidian daily:read",
+          "label": "读取今日日记"
+        },
+        {
+          "command": "obsidian create name=\"日记备份_{date}.md\" content=\"{prev}\" path=\"备份/\"",
+          "label": "创建备份",
+          "usePrev": true
+        }
+      ],
+      "schedule": {
+        "enabled": false,
+        "type": "daily",
+        "time": "23:00"
+      }
+    }
+  ]
+}

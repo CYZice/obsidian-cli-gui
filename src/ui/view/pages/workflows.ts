@@ -68,7 +68,7 @@ export function renderWorkflows(e) {
                 a = JSON.parse(t);
               if (!a.name || !Array.isArray(a.steps))
                 throw new Error("数据格式错误");
-              (this.plugin.settings.workflows.push(a),
+              (this.plugin.settings.manualWorkflows.push(a),
                 await this.plugin.saveSettings(),
                 new obsidian.Notice(`已导入序列「${a.name}」`),
                 (i.style.display = "none"),
@@ -86,7 +86,7 @@ export function renderWorkflows(e) {
               "Escape" === e.key &&
                 ((i.style.display = "none"), (s.value = "")));
           }),
-          this.plugin.settings.workflows),
+          this.plugin.settings.manualWorkflows),
         u = this.plugin.settings.workflowGroups || [];
       l = e.createEl("button", {
         cls: "cli-btn-add cli-btn-new-group",
@@ -245,7 +245,7 @@ export function renderWorkflows(e) {
               this._on(a, "click", (e) => {
                 (e.stopPropagation(),
                   this._confirmDanger(a, async () => {
-                    (this.plugin.settings.workflows.splice(r, 1),
+                    (this.plugin.settings.manualWorkflows.splice(r, 1),
                       await this.plugin.saveSettings(),
                       this.render());
                   }));
@@ -290,7 +290,7 @@ export function renderWorkflows(e) {
                     t
                       ? c.insertAdjacentElement("afterend", i)
                       : l.insertBefore(i, c);
-                    var i = this.plugin.settings.workflows,
+                    var i = this.plugin.settings.manualWorkflows,
                       [s] = i.splice(a, 1);
                     let e = r;
                     (a < r && (e = r - 1),
@@ -955,8 +955,8 @@ export function renderWorkflowEditor(e) {
                 }),
                 void 0 !== g.group && (e.group = g.group),
                 t
-                  ? (this.plugin.settings.workflows[g.editIdx] = e)
-                  : this.plugin.settings.workflows.push(e),
+                  ? (this.plugin.settings.manualWorkflows[g.editIdx] = e)
+                  : this.plugin.settings.manualWorkflows.push(e),
                 await this.plugin.saveSettings(),
                 (this.wfEditor = null),
                 this.render())

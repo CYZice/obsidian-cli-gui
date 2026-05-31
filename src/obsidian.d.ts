@@ -34,6 +34,7 @@ declare module "obsidian" {
     read(file: TAbstractFile): Promise<string>;
     cachedRead(file: TFile): Promise<string>;
     modify(file: TAbstractFile, content: string): Promise<void>;
+    on(name: string, callback: (file: TFile) => void | Promise<void>): { off(): void };
   }
 
   export interface MetadataCache {

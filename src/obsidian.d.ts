@@ -127,6 +127,7 @@ declare module "obsidian" {
   }
 
   export interface TextComponent {
+    inputEl: HTMLInputElement;
     setValue(value: string): this;
     setPlaceholder(value: string): this;
     onChange(callback: (value: string) => void | Promise<void>): this;

@@ -155,13 +155,13 @@ export class CLICommanderSettingTab extends PluginSettingTab {
           toggle.setValue(source.enabled).onChange(async (value) => {
             this.plugin.settings.workflowSources[index].enabled = value;
             await this.plugin.saveSettings();
-            this.display();
           }),
         );
 
         setting.addButton((button) =>
-          button.setIcon("refresh-cw").setTooltip("重新加载").onClick(async () => {
+          button.setIcon("refresh-cw").setTooltip("刷新全部文件源").onClick(async () => {
             await this.plugin.reloadWorkflowSources();
+            new Notice("🔄 已重新加载所有文件源");
             this.display();
           }),
         );
@@ -176,39 +176,52 @@ export class CLICommanderSettingTab extends PluginSettingTab {
       });
     }
 
-    new Setting(container)
+    // 添加文件源
+    let addSourceInput: HTMLInputElement | null = null;
+    const addSourceRow = new Setting(container)
       .setName("添加文件源")
-      .setDesc("输入 vault 中 JSON 文件的路径")
-      .addText((text) =>
-        text.setPlaceholder(".cli/workflows.json").onChange(async (value) => {
-          if (!value?.trim()) return;
-          const path = value.trim();
-          const count = await this.plugin.addWorkflowSource(path);
+      .setDesc("输入 vault 中 JSON 文件的路径后点击添加");
+    addSourceRow.addText((text) => {
+      addSourceInput = text.inputEl;
+      text.setPlaceholder(".cli/workflows.json");
+    });
+    addSourceRow.addButton((button) =>
+      button.setButtonText("添加").onClick(async () => {
+        const path = addSourceInput?.value?.trim();
+        if (!path) return;
+        const count = await this.plugin.addWorkflowSource(path);
+        if (count > 0) {
           new Notice(`✅ 已添加文件源，导入了 ${count} 个 workflows`);
-          this.display();
-        }),
-      );
+        } else {
+          const source = this.plugin.settings.workflowSources.find((s) => s.path === path);
+          if (source?.lastError) {
+            new Notice(`❌ 添加失败：${source.lastError}`);
+          } else {
+            new Notice(`⚠️ 文件中未找到有效的 workflows`);
+          }
+        }
+        this.display();
+      }),
+    );
 
-    new Setting(container)
-      .setName("重新加载所有文件源")
-      .addButton((button) =>
-        button.setButtonText("刷新").onClick(async () => {
-          await this.plugin.reloadWorkflowSources();
-          new Notice("🔄 已重新加载所有文件源");
-          this.display();
-        }),
-      );
-
-    new Setting(container)
-      .setName("导出 Workflows 到文件")
-      .setDesc("导出手动创建的 workflows 到 vault 文件")
-      .addText((text) =>
-        text.setPlaceholder(".cli/manual-export.json").onChange(async (value) => {
-          if (!value?.trim()) return;
-          await this.plugin.exportWorkflowsToFile(value.trim());
-          new Notice(`✅ 已导出到 ${value}`);
-        }),
-      );
+    // 导出 workflows
+    let exportInput: HTMLInputElement | null = null;
+    const exportRow = new Setting(container)
+      .setName("导出手动创建的 workflows")
+      .setDesc("输入文件名后点击导出");
+    exportRow.addText((text) => {
+      exportInput = text.inputEl;
+      text.setPlaceholder(".cli/manual-export.json");
+    });
+    exportRow.addButton((button) =>
+      button.setButtonText("导出").onClick(async () => {
+        const path = exportInput?.value?.trim();
+        if (!path) return;
+        await this.plugin.exportWorkflowsToFile(path);
+        new Notice(`✅ 已导出到 ${path}`);
+        this.display();
+      }),
+    );
 
     container.createEl("h3", { text: "内置预设管理" });
 
